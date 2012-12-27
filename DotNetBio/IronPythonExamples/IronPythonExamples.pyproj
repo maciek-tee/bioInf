@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2781e423-f553-4bb2-ba8d-bf0aaa76bdd2}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>BioMenu.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <InterpreterId>80659ab7-4d53-4e0c-8588-a766116cbd46</InterpreterId>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterVersion>2.7</InterpreterVersion>
+    <OutputPath>.</OutputPath>
+    <Name>IronPythonExamples</Name>
+    <RootNamespace>IronPythonExamples</RootNamespace>
+    <CommandLineArguments />
+    <InterpreterPath />
+    <InterpreterArguments />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BioDebug.py" />
+    <Compile Include="BioIronPython\Algorithms.py" />
+    <Compile Include="BioIronPython\BioDemo.py" />
+    <Compile Include="BioIronPython\IO.py" />
+    <Compile Include="BioIronPython\ListOr.py" />
+    <Compile Include="BioIronPython\SequenceManipulationApplications.py" />
+    <Compile Include="BioIronPython\Util.py" />
+    <Compile Include="BioIronPython\Web.py" />
+    <Compile Include="BioIronPython\__init__.py" />
+    <Compile Include="BioMenu.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BioIronPython\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Bio, Version=1.1.4482.26498, Culture=neutral, PublicKeyToken=13335e9abfbf69d0">
+      <Name>Bio</Name>
+      <AssemblyName>Bio.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bio.Comparative, Version=1.1.4482.26545, Culture=neutral, PublicKeyToken=null">
+      <Name>Bio.Comparative</Name>
+      <AssemblyName>Bio.Comparative.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.Comparative.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bio.Hpc, Version=1.1.4482.26536, Culture=neutral, PublicKeyToken=13335e9abfbf69d0">
+      <Name>Bio.Hpc</Name>
+      <AssemblyName>Bio.Hpc.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.Hpc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bio.IO, Version=1.1.4482.26538, Culture=neutral, PublicKeyToken=13335e9abfbf69d0">
+      <Name>Bio.IO</Name>
+      <AssemblyName>Bio.IO.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bio.Padena, Version=1.1.4482.26507, Culture=neutral, PublicKeyToken=null">
+      <Name>Bio.Padena</Name>
+      <AssemblyName>Bio.Padena.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.Padena.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bio.Pamsam, Version=1.1.4482.26509, Culture=neutral, PublicKeyToken=null">
+      <Name>Bio.Pamsam</Name>
+      <AssemblyName>Bio.Pamsam.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.Pamsam.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bio.WebServiceHandlers, Version=1.1.4482.26512, Culture=neutral, PublicKeyToken=null">
+      <Name>Bio.WebServiceHandlers</Name>
+      <AssemblyName>Bio.WebServiceHandlers.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.WebServiceHandlers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bio.Workflow, Version=1.1.4482.26572, Culture=neutral, PublicKeyToken=null">
+      <Name>Bio.Workflow</Name>
+      <AssemblyName>Bio.Workflow.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Bio.Workflow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Tools.VennToNodeXL, Version=1.1.4482.26519, Culture=neutral, PublicKeyToken=null">
+      <Name>Tools.VennToNodeXL</Name>
+      <AssemblyName>Tools.VennToNodeXL.dll</AssemblyName>
+      <HintPath>C:\Program Files (x86)\.NET Bio\1.01\Tools\Bin\Tools.VennToNodeXL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
