@@ -187,7 +187,7 @@ namespace DotNetBioExamples
             formatter.Dispose();
         }
         
-        public static void ConvertFromOneFormatToAnother(string inputFileName, string outputFileName, /*GenBankFormatter*/ ISequenceFormatter targetFormatter)
+        public static void ConvertFromOneFormatToAnother(string inputFileName, string outputFileName, ISequenceFormatter targetFormatter)
         {
             var parser = SequenceParsers.FindParserByFileName(inputFileName);
             var sequenceList = parser.Parse();
