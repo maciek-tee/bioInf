@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using Bio;
 using Bio.Algorithms.Kmer;
 using Bio.IO;
+using Bio.IO.FastA;
+using Bio.IO.GenBank;
 using Bio.Util;
 
 namespace DotNetBioExamples
 {
     public class NetBioExamples
     {
-        public static void DiffSeq(string firstFile, string secondFile)
+        public static void FindDifferencesInSequences(string firstFile, string secondFile)
         {
             // parsowanie pierwszej listy
             if(!SequenceParsers.IsFasta(firstFile))
@@ -60,7 +62,7 @@ namespace DotNetBioExamples
 
         }   
 
-        public static void ConcatenateSequences(string firstFile, string secondFile)
+        public static void ConcatenateSequences(string firstFile, string secondFile, string outputFile)
         {
             if (!SequenceParsers.IsFasta(firstFile))
             {
@@ -120,9 +122,7 @@ namespace DotNetBioExamples
             }
 
             Console.WriteLine("Uzywany alfabet: " + alphabet.Name);
-
-            var outputFile = "concatenated.fasta";
-
+            
             var firstListConcatenated = "";
             var secondListConcatenated = "";
 
@@ -146,7 +146,7 @@ namespace DotNetBioExamples
             formatter.Dispose();
         }
 
-        public static void StripNonAlphabets(string inputFile)
+        public static void StripNonAlphabets(string inputFile, string outputFile)
         {
             var parser = SequenceParsers.FindParserByFileName(inputFile);
             var sequenceList = parser.Parse();
@@ -177,7 +177,6 @@ namespace DotNetBioExamples
             }
 
             // zapisanie sekwencji do pliku
-            var outputFile = "cleaned.fasta";
             var formatter = SequenceFormatters.FindFormatterByFileName(outputFile);
 
             foreach (var sequence in newSequences)
@@ -187,6 +186,22 @@ namespace DotNetBioExamples
             
             formatter.Dispose();
         }
+        
+        public static void ConvertFromOneFormatToAnother(string inputFileName, string outputFileName, /*GenBankFormatter*/ ISequenceFormatter targetFormatter)
+        {
+            var parser = SequenceParsers.FindParserByFileName(inputFileName);
+            var sequenceList = parser.Parse();
+            var sequences = Helper.ConvertIenumerableToList(sequenceList);
 
+            targetFormatter.Open(outputFileName);
+
+            foreach (var sequence in sequences)
+            {
+                targetFormatter.Write(sequence);
+            }
+
+            targetFormatter.Close();
+            targetFormatter.Dispose();
+        }
     }
 }

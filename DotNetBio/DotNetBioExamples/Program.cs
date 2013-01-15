@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
+using Bio.IO;
 using Bio.Web.Blast;
 
 namespace DotNetBioExamples
@@ -8,11 +9,19 @@ namespace DotNetBioExamples
     {
         static void Main(string[] args)
         {
-            var firstFile = @"..\..\TestData\first_file.fasta";
-            var secondFile = @"..\..\TestData\second_file.fasta";
-            NetBioExamples.DiffSeq(firstFile, secondFile);
-            NetBioExamples.ConcatenateSequences(firstFile, secondFile);
-            NetBioExamples.StripNonAlphabets(firstFile);
+            const string firstFastaFilePath = @"..\..\TestData\first_file.fasta";
+            const string secondFastaFilePath = @"..\..\TestData\second_file.fasta";
+
+            // wyszukanie różnic w sekwencjach - nie działa poprawnie.
+            NetBioExamples.FindDifferencesInSequences(firstFastaFilePath, secondFastaFilePath);
+            
+            // łączenie sekwencji podanych w dwu plikach i zapisanie do trzeciego
+            NetBioExamples.ConcatenateSequences(firstFastaFilePath, secondFastaFilePath, "concatenated.fasta");
+            
+            NetBioExamples.StripNonAlphabets(firstFastaFilePath, "cleaned.fasta");
+
+            // nie działa z powodu błędów w SequenceFormatters. Możliwa jest konwersja z Fasta do Fasta...
+            NetBioExamples.ConvertFromOneFormatToAnother(firstFastaFilePath, "output.genbank", SequenceFormatters.GenBank);
         }
     }
 }
